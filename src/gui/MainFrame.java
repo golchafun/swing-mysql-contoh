@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
 import db.ConnectionDB;
@@ -21,11 +17,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private Connection conn;
-    private DefaultTableModel model;
-
+    
     private void populateTable() {
-        model = (DefaultTableModel) jtMember.getModel();
+        DefaultTableModel model = (DefaultTableModel) jtMember.getModel();
         model.setRowCount(0);
         model.setColumnCount(0);
         model.addColumn("Id Member");
@@ -42,7 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
     private List<Member> fetchMembers() {
         List<Member> members = new ArrayList();
         try {
-            conn = ConnectionDB.createConnection();
+            Connection conn = ConnectionDB.createConnection();
             String kueri = "SELECT * FROM pelanggan";
             PreparedStatement ps = conn.prepareStatement(kueri);
             ResultSet rs = ps.executeQuery();
@@ -269,6 +263,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             //dapatkan id data yang akan dihapus
             int selectedRow = jtMember.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) jtMember.getModel();
             String id = model.getValueAt(selectedRow, 0).toString();
             //lakukan confirm
             int pil = JOptionPane.showConfirmDialog(null, "Hapus data ID: " + id + "?");
