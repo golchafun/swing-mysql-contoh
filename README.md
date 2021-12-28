@@ -1,4 +1,4 @@
-#App Pelanggan
+# App Pelanggan #
 Aplikasi yang dibuat merupakan app berbasis desktop dengan menggunakan bahasa Java. Beberapa hal yang perlu diperhatikan:
 * Menggunakan swing untuk komponen GUI
 * Menggunakan MariaDB dari LAMPP untuk penyimpanan data
